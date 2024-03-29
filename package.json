@@ -1,0 +1,22 @@
+{
+  "name": "prisma-common-error-handle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "prepack": "npm run build",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yeongchan kim",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "keywords": [
+    "prisma",
+    "prisma error",
+    "prisma error handle"
+  ]
+}

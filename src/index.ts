@@ -3,7 +3,7 @@
  * Put Prisma.PrismaClientKnowRequestError as a parameter.
  * Locate the error code indicated by Prisma.PrismaClientKnowRequestError and return the appropriate error message and http status.
  */
-export function findPrismaErrorMessageAndStatus(exception: any) {
+export function findPrismaErrorInfo(exception: any) {
   let message: string;
   let status: number;
 
@@ -121,8 +121,8 @@ export function findPrismaErrorMessageAndStatus(exception: any) {
       status = PrismaCommonErrStatus.P2027;
       break;
     default:
-      message = exception.message.replace(/\n/g, "");
-      status = 400;
+      message = "Invalid parameters were delivered.";
+      status = 500;
       break;
   }
 

@@ -8,7 +8,7 @@
 
 - When using prisma in nestjs or express, there are cases where exceptions that prisma throw are filtered.
 - At this time, the library was created to make it easier to deal with the most frequently occurring prisma errors, such as Prisma.PrismaClientKnowRequestError.
-- The `findPrismaErrorMessageAndStatus()` function provides specific error messages and httpstatus that fit each Prisma error.
+- The `findPrismaErrorInfo()` function provides specific error messages and httpstatus that fit each Prisma error.
 - In addition, the `PrismaCommonErrCode` enumeration contains a frequently used prisma error code.
 - If necessary, it can be further customized.
 
@@ -19,13 +19,19 @@
 - Exception type must be `Prisma.PrismaClientKnownRequestError`
 
 ```typescript
+import { ArgumentsHost, Catch } from "@nestjs/common";
+import { BaseExceptionFilter } from "@nestjs/core";
+import { Prisma } from "@prisma/client";
+import { Request, Response } from "express";
+import { findPrismaErrorInfo } from "prisma-common-error-handle";
+
 @Catch(Prisma.PrismaClientKnownRequestError)
 export class PrismaClientExceptionFilter extends BaseExceptionFilter {
   catch(exception: Prisma.PrismaClientKnownRequestError, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
     const request = ctx.getRequest<Request>();
-    const { message, status } = findPrismaErrorMessageAndStatus(exception);
+    const { message, status } = findPrismaErrorInfo(exception);
 
     response.status(status).json({
       message,
@@ -41,5 +47,5 @@ export class PrismaClientExceptionFilter extends BaseExceptionFilter {
 - Exception type must be `Prisma.PrismaClientKnownRequestError`
 
 ```typescript
-const { message, status } = findPrismaErrorMessageAndStatus(exception);
+const { message, status } = findPrismaErrorInfo(exception);
 ```

@@ -3,7 +3,7 @@
  * Put Prisma.PrismaClientKnowRequestError as a parameter.
  * Locate the error code indicated by Prisma.PrismaClientKnowRequestError and return the appropriate error message and http status.
  */
-export declare function findPrismaErrorMessageAndStatus(exception: any): {
+export declare function findPrismaErrorInfo(exception: any): {
     message: string;
     status: number;
 };

@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PrismaCommonErrCode = exports.PrismaCommonErrStatus = exports.PrismaCommonErrMsg = exports.findPrismaErrorMessageAndStatus = void 0;
+exports.PrismaCommonErrCode = exports.PrismaCommonErrStatus = exports.PrismaCommonErrMsg = exports.findPrismaErrorInfo = void 0;
 /**
  *
  * Put Prisma.PrismaClientKnowRequestError as a parameter.
  * Locate the error code indicated by Prisma.PrismaClientKnowRequestError and return the appropriate error message and http status.
  */
-function findPrismaErrorMessageAndStatus(exception) {
+function findPrismaErrorInfo(exception) {
     let message;
     let status;
     switch (exception.code) {
@@ -123,13 +123,13 @@ function findPrismaErrorMessageAndStatus(exception) {
             status = exports.PrismaCommonErrStatus.P2027;
             break;
         default:
-            message = exception.message.replace(/\n/g, "");
-            status = 400;
+            message = "Invalid parameters were delivered.";
+            status = 500;
             break;
     }
     return { message, status };
 }
-exports.findPrismaErrorMessageAndStatus = findPrismaErrorMessageAndStatus;
+exports.findPrismaErrorInfo = findPrismaErrorInfo;
 exports.PrismaCommonErrMsg = {
     P2000: "The provided value for the column is too long for the column's type",
     P2001: "The record searched for in the where condition does not exist",

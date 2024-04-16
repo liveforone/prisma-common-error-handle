@@ -1,6 +1,6 @@
 {
   "name": "prisma-common-error-handle",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Utility package that finds the appropriate http status code and message for prisma exceptions when using prisma in nestjs",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

@@ -10,7 +10,7 @@
 - At this time, the library was created to make it easier to deal with the most frequently occurring prisma errors, such as `PrismaClientKnowRequestError`.
 - The `findPrismaErrorInfo()` function provides specific error messages and httpstatus that fit each Prisma error.
 - In addition, the `PrismaCommonErrCode` enumeration contains a frequently used prisma error code.
-- If necessary, it can be further customized.
+- Each error message contains a detailed description of the error and a solution.
 
 ## examples
 
@@ -44,7 +44,7 @@ export class PrismaClientExceptionFilter extends BaseExceptionFilter {
 ```
 
 - simple example
-- Exception type must be `Prisma.PrismaClientKnownRequestError`
+- Exception type must be `PrismaClientKnownRequestError`
 
 ```typescript
 const { message, status } = findPrismaErrorInfo(exception);

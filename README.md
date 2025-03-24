@@ -11,6 +11,7 @@
 - The `findPrismaErrorInfo()` function provides specific error messages and httpstatus that fit each Prisma error.
 - In addition, the `PrismaCommonErrCode` enumeration contains a frequently used prisma error code.
 - Each error message contains a detailed description of the error and a solution.
+- This library supports All `PrismaClientKnowRequestError`.
 
 ## examples
 

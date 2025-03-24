@@ -36,6 +36,15 @@ export declare const PrismaCommonErrMsg: {
     readonly P2025: "[P2025] The error indicates that an operation failed because it depends on one or more records that were required but not found. This typically occurs when there's a dependency between operations, such as when trying to perform an action that relies on the existence of specific records. Review the dependencies and ensure that all required records are present before attempting the operation to avoid this error.";
     readonly P2026: "[P2026] The error suggests that the query includes a feature or functionality that is not supported by the current database provider. This can happen when using certain SQL syntax, functions, or operators that are not compatible with the database system being used. To resolve this issue, you may need to modify the query to use supported features or consider switching to a different database provider that supports the required functionality.";
     readonly P2027: "[P2027] The error indicates that there were multiple issues encountered while executing the query on the database. These errors could range from syntax errors in the query to data integrity issues or database connectivity problems. To address this, carefully review each error message provided and take appropriate actions to resolve them individually.";
+    readonly P2028: "[P2028] An error occurred while using the transaction API. Verify the transaction logic and ensure all operations are valid.";
+    readonly P2029: "[P2029] The number of parameters in a query exceeded the database's allowed limit. Reduce the number of parameters or batch the queries into smaller chunks.";
+    readonly P2030: "[P2030] A full-text search was attempted, but no full-text index exists on the specified fields. Add a @@fulltext([Fields...]) index in your Prisma schema and migrate the database.";
+    readonly P2031: "[P2031] Prisma transactions require MongoDB to be configured as a replica set.";
+    readonly P2033: "[P2033] A numeric value in the query exceeds the 64-bit integer limit. Use the BigInt data type in your Prisma schema for large numbers.";
+    readonly P2034: "[P2034] The transaction failed because of a write conflict or deadlock. Retry the transaction, ensuring that operations are not conflicting.";
+    readonly P2035: "[P2035] An unexpected assertion error occurred at the database level. Check the database logs for more details and report the issue if needed.";
+    readonly P2036: "[P2036] An error occurred in an external database connector. Identify the failing connector by its ID and check its configuration or logs.";
+    readonly P2037: "[P2037] The number of open database connections exceeded the allowed limit. Optimize connection pooling settings and ensure unused connections are closed properly.";
 };
 export declare const PrismaCommonErrStatus: {
     readonly P2000: 400;
@@ -66,6 +75,15 @@ export declare const PrismaCommonErrStatus: {
     readonly P2025: 404;
     readonly P2026: 400;
     readonly P2027: 500;
+    readonly P2028: 500;
+    readonly P2029: 400;
+    readonly P2030: 400;
+    readonly P2031: 500;
+    readonly P2033: 400;
+    readonly P2034: 409;
+    readonly P2035: 500;
+    readonly P2036: 502;
+    readonly P2037: 503;
 };
 /**
  *
@@ -100,5 +118,14 @@ export declare enum PrismaCommonErrCode {
     P2024 = "P2024",
     P2025 = "P2025",
     P2026 = "P2026",
-    P2027 = "P2027"
+    P2027 = "P2027",
+    P2028 = "P2028",
+    P2029 = "P2029",
+    P2030 = "P2030",
+    P2031 = "P2031",
+    P2033 = "P2033",
+    P2034 = "P2034",
+    P2035 = "P2035",
+    P2036 = "P2036",
+    P2037 = "P2037"
 }
